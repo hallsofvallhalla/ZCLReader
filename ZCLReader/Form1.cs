@@ -55,7 +55,7 @@ namespace ZCLReader
                     ////////////////////////Frame Control/////////////////////////
                     string FrameControl = line.Substring(0, 2);
                     ConvertedBinary = Convert.ToString(Convert.ToInt32(FrameControl, 16), 2).PadLeft(8,'0');
-                    string ManufacturerType = ConvertedBinary.Substring(0, 2);
+                    string ManufacturerType = ConvertedBinary.Substring(6, 2);
                     
                             /////////////////////////////Manufactor Type
                     switch (ManufacturerType)
@@ -79,7 +79,7 @@ namespace ZCLReader
                     
                         
                            ////////////////////Manufacturer Code
-                    string isManufacturerCode = ConvertedBinary.Substring(2,1);
+                    string isManufacturerCode = ConvertedBinary.Substring(5,1);
                         if (Convert.ToInt32(isManufacturerCode) == 0)
                         {
                             MCString += "No" + Environment.NewLine;;
@@ -89,7 +89,7 @@ namespace ZCLReader
                             MCString += "Yes " + Environment.NewLine;
                         }
                         ///////////////////////Direction
-                     string MDirection = ConvertedBinary.Substring(3, 1);
+                     string MDirection = ConvertedBinary.Substring(4, 1);
                      switch(MDirection)
                     {
                         case "0":
@@ -103,7 +103,7 @@ namespace ZCLReader
                             break;
                     }
                             /////////////////Default Response
-                    string DefaultResponse = ConvertedBinary.Substring(4, 1);
+                    string DefaultResponse = ConvertedBinary.Substring(3, 1);
                      switch (DefaultResponse)
                      {
                          case "0":
@@ -120,8 +120,12 @@ namespace ZCLReader
                      if (Convert.ToInt32(isManufacturerCode) == 1)
                      {
                          string MCode = line.Substring(2, 4);
-                         ConvertedBinary = Convert.ToString(Convert.ToInt32(MCode, 16), 2).PadLeft(16, '0'); 
-                         ifMCString += "Manufacturer Code: " + ConvertedBinary + Environment.NewLine; 
+                         ConvertedBinary = Convert.ToString(Convert.ToInt32(MCode, 16), 2).PadLeft(16, '0');
+                         ifMCString += "Manufacturer Code: " + ConvertedBinary + Environment.NewLine;
+                     }
+                     else
+                     {
+                         ifMCString += Environment.NewLine;
                      }
 
                     /////////////////////////////Transaction Sequence Number////////////
@@ -161,7 +165,7 @@ namespace ZCLReader
                              CommandString += "Write Attributes Undivided" + Environment.NewLine;
                              break;
                                  case "04":
-                             CommandString += "Write Response" + Environment.NewLine;
+                             CommandString += "Write Attributes Response" + Environment.NewLine;
                              break;
                                  case "05":
                              CommandString += "Write Attributes No Response" + Environment.NewLine;
@@ -254,6 +258,11 @@ namespace ZCLReader
                     MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
                 }
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

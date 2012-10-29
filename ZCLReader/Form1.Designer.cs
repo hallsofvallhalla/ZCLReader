@@ -80,7 +80,7 @@
             // 
             this.DirectionLabel.AutoSize = true;
             this.DirectionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DirectionLabel.Location = new System.Drawing.Point(334, 128);
+            this.DirectionLabel.Location = new System.Drawing.Point(454, 127);
             this.DirectionLabel.Name = "DirectionLabel";
             this.DirectionLabel.Size = new System.Drawing.Size(51, 15);
             this.DirectionLabel.TabIndex = 3;
@@ -90,7 +90,7 @@
             // 
             this.ResponseLabel.AutoSize = true;
             this.ResponseLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ResponseLabel.Location = new System.Drawing.Point(402, 128);
+            this.ResponseLabel.Location = new System.Drawing.Point(508, 127);
             this.ResponseLabel.Name = "ResponseLabel";
             this.ResponseLabel.Size = new System.Drawing.Size(94, 15);
             this.ResponseLabel.TabIndex = 4;
@@ -110,7 +110,7 @@
             // 
             this.TransLabel.AutoSize = true;
             this.TransLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TransLabel.Location = new System.Drawing.Point(502, 128);
+            this.TransLabel.Location = new System.Drawing.Point(608, 127);
             this.TransLabel.Name = "TransLabel";
             this.TransLabel.Size = new System.Drawing.Size(65, 15);
             this.TransLabel.TabIndex = 6;
@@ -130,7 +130,7 @@
             // 
             this.CommandLabel.AutoSize = true;
             this.CommandLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CommandLabel.Location = new System.Drawing.Point(573, 128);
+            this.CommandLabel.Location = new System.Drawing.Point(679, 127);
             this.CommandLabel.Name = "CommandLabel";
             this.CommandLabel.Size = new System.Drawing.Size(56, 15);
             this.CommandLabel.TabIndex = 8;
@@ -140,7 +140,7 @@
             // 
             this.PayloadLabel.AutoSize = true;
             this.PayloadLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PayloadLabel.Location = new System.Drawing.Point(753, 128);
+            this.PayloadLabel.Location = new System.Drawing.Point(879, 128);
             this.PayloadLabel.Name = "PayloadLabel";
             this.PayloadLabel.Size = new System.Drawing.Size(47, 15);
             this.PayloadLabel.TabIndex = 9;
@@ -175,6 +175,7 @@
             this.Controls.Add(this.UploadButton);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
